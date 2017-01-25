@@ -2,17 +2,15 @@ function [xdot] = jet(t,x)
     global B alpha
     
     xdot(1) = B*(C(x(1))-x(2));
-    xdot(2) = (1/B)*(x(1)-F(x(2),alpha));
+    xdot(2) = (1/B)*(x(1)-Finv(x(2),alpha));
     xdot = xdot';
 end
 
-function y = F(x,alpha)
-    if(x > 0)
-        y = x^2/alpha^2;
-    elseif(x == 0)
-        y = 0;
-    else % if x < 0
-        y = -(x^2/alpha^2);
+function x = Finv(y,alpha)
+    if(y >= 0)
+        x = alpha*sqrt(y);
+    else
+        x = -alpha*sqrt(-y);
     end
 end
 

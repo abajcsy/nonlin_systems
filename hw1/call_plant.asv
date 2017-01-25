@@ -21,10 +21,11 @@ plot(4/3,0,'ko','MarkerSize',5)
 xlabel('x1'); ylabel('x2');
 title('Problem 1: Plots of xdot vs. x with Quadratic Stiction, b=1');
 
+hold off
 figure
 hold on
 
-init = [[-2 10]; [-2 7]; [-2 4]; [-2 -2]; [-2 -4]; [-3 -4]; [0 -10]; [2 -10]; [4 -10]; [4 -6]; [2 0]; [4 0]];
+init = [[-2 10]; [-2 7]; [-2 4]; [-2 -2]; [-2 -4]; [-3 -4]; [0 -10]; [2 -10]; [4 -10]];
 
 b = 2;
 for i = 1:length(init)
@@ -33,14 +34,13 @@ for i = 1:length(init)
 end
 
 % plotting functions
+plot(4/3,0,'ko','MarkerSize',5)
 xlabel('x1'); ylabel('x2');
 title('Problem 1: Plots of xdot vs. x with Quadratic Stiction, b=2');
 
+hold off
 figure
 hold on
-
-init = [[0 -4]; [2 -4]; [0 4]; [2 4]; [0 0]; [0.5 0]; [3 0]];
-
 b = 2.1;
 for i = 1:length(init)
     [T,x]=ode23('plant', [0 20], init(i,:));
@@ -48,15 +48,16 @@ for i = 1:length(init)
 end
 
 % plotting functions
+plot(4/3,0,'ko','MarkerSize',5)
 xlabel('x1'); ylabel('x2');
 title('Problem 1: Plots of xdot vs. x with Quadratic Stiction, b=2.1');
 
 %Part 2: Stiction is a piecewise linear function
+hold off
 figure
 hold on
 
-init = [[3 0]; [1 0]; [0 0]; [2 -10]; [0 -10]; [-2 10]; [-5 5]; [-2 7]; [6 -10]; [4 2]];
-
+b = 1;
 for i = 1:length(init)
     [T,x]=ode23('plant2', [0 20], init(i,:));
     plot(x(:,1),x(:,2)) 
