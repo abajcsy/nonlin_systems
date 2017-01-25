@@ -16,3 +16,4 @@ function [xdot] = plant2(t,x)
     xdot(1) = x(2);
     xdot(2) = (1/M)*(-k*x(1) - F);
     xdot = xdot';
+    
