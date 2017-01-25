@@ -20,7 +20,7 @@ title('Problem 2: Effect of increasing compressor speed B=0.1');
 figure
 hold on
 
-B = 0.3
+B = 0.3;
 for i = 1:length(init)
     [T,x]=ode23('jet', [0 20], init(i,:));
     plot(x(:,1),x(:,2)) 
@@ -32,7 +32,7 @@ title('Problem 2: Effect of increasing compressor speed B=0.3');
 figure
 hold on
 
-B = 1
+B = 1;
 for i = 1:length(init)
     [T,x]=ode23('jet', [0 20], init(i,:));
     plot(x(:,1),x(:,2)) 
